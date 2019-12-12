@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# What?
 
-## Available Scripts
+この app は Vim の背景を擬似的に動画にするために作られたアプリです．
+具体的には，geektool というアプリを用いてデスクトップに youtube 動画を再生させます．
 
-In the project directory, you can run:
+This app displays a video on the background of vim.
+Specifically, it palys a video by using geektool.
 
-### `yarn start`
+# Reaquirement
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. geektool  
+   geektool は Mac 用アプリになるため，このアプリは Mac 専用になります．
+   homebrew を使用している場合，以下のコマンドで geektool をインストールしてください．
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+   This app is for Mac only becuase geektool is a app for Mac.
+   if you are using homebrew, please install geektool with homebrew.
 
-### `yarn test`
+   ```shell
+   brew cask install geektool
+   ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```shell
+   brew cask install geektool
+   ```
 
-### `yarn build`
+2. playlist of youtube video  
+   再生する youtube 動画の playlist ID を用意しておいてください．
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   Please get playlist ID of youtube video.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- このリポジトリを clone してください.  
+  Please clone this repository.
 
-### `yarn eject`
+  ```shell
+  git clone https://github.com/faluna/vim-bg-youtube.git
+  cd vim-bg-youtube
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- モジュールをインストールしてください.  
+  install modules.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```shell
+  yarn install
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- src ディレクトリ下に lists ディレクトリを作成してください．  
+  Next, make the directory 'lists' under 'src' directory.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  ```shell
+  mkdir src/lists
+  ```
 
-## Learn More
+- lists ディレクトリ下に playlist.js ファイルを作り，以下のようにコードを記述してください．  
+  Make playlist.js file under the lists directory, then write codes as follows
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ```javascript:/src/lists/playlist.js
+  const playlist = 'playlist name';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  export default playlist;
+  ```
 
-### Code Splitting
+- アプリ実行
+  Runs the app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  ```shell
+  yarn start
+  ```
 
-### Analyzing the Bundle Size
+- GeekTool の Web を選び, Properties の URL 欄に[http://localhost:3000]を記述  
+  Select Web from Geeklets and write [http://localhost:3000] in URL item of Properties.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Check the item 'Enable'.
